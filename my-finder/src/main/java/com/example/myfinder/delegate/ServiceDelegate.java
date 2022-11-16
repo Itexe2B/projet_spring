@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class FilmServiceDelegate {
+//J'ai voulut faire 2 services delegate pour faire propre mais j'ai eu des erreurs.
+public class ServiceDelegate {
 
     @Autowired
     RestTemplate restTemplate;
@@ -47,6 +48,43 @@ public class FilmServiceDelegate {
                 new ParameterizedTypeReference<String>() {
                 },
                 year
+        ).getBody();
+    }
+
+
+    @HystrixCommand(fallbackMethod = "fallbacked")
+    public String getActors(String schoolname) {
+        return this.restTemplate.exchange(
+                "http://localhost:8080/getActors",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<String>() {
+                },
+                ""
+        ).getBody();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbacked")
+    public String getActor(String actor) {
+        return this.restTemplate.exchange(
+                "http://localhost:8080/getActor/{actor}",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<String>() {
+                },
+                actor
+        ).getBody();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbacked")
+    public String getActorsForFilm(String film) {
+        return this.restTemplate.exchange(
+                "http://localhost:8080/getActorsByFilm/{film}",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<String>() {
+                },
+                film
         ).getBody();
     }
 
