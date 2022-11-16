@@ -10,7 +10,7 @@ public class Film {
         return realisateur;
     }
 
-    public Acteur getActeurPrincipal() {
+    public String getActeurPrincipal() {
         return acteurPrincipal;
     }
 
@@ -18,16 +18,16 @@ public class Film {
         return dateSortie;
     }
 
-    public void setActeurPrincipal(Acteur acteurPrincipal) {
+    public void setActeurPrincipal(String acteurPrincipal) {
         this.acteurPrincipal = acteurPrincipal;
     }
 
     private String titre;
     private String realisateur;
-    private Acteur acteurPrincipal;
+    private String acteurPrincipal;
     private String dateSortie;
 
-    public Film(String titre, String realisateur, Acteur acteurPrincipal, String dateSortie) {
+    public Film(String titre, String realisateur, String acteurPrincipal, String dateSortie) {
         this.titre = titre;
         this.realisateur = realisateur;
         this.acteurPrincipal = acteurPrincipal;

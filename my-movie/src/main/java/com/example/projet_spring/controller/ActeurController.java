@@ -18,15 +18,12 @@ public class ActeurController {
 
     List<Acteur> actors = new ArrayList<>();
     {
-        Acteur act1 = new Acteur("NOM1", "PRENOM1", "y'a pas longtemp", null);
-        Acteur act2 = new Acteur("NOM2", "PRENOM2", "y'a pas longtemp2", null);
-        Acteur act3 = new Acteur("NOM3", "PRENOM3", "y'a pas longtemp3", null);
+        Acteur act1 = new Acteur("Tommy", "PRENOM1", "y'a pas longtemp");
+        Acteur act2 = new Acteur("NOM2", "PRENOM2", "y'a pas longtemp2");
+        Acteur act3 = new Acteur("Tommy3", "PRENOM3", "y'a pas longtemp3");
 
-        Film film1 = new Film("film1", "genre1", act1, "2000");
-        Film film2 = new Film("film2", "genre2", act1, "2001");
-        film1.setActeurPrincipal(act1);
-        film2.setActeurPrincipal(act3);
-
+        Film film1 = new Film("film1", "genre1", "Tommy", "2000");
+        Film film2 = new Film("film2", "genre2", "Tommy3", "2001");
         act1.addFilmographie(film1);
         act2.addFilmographie(film1);
 
