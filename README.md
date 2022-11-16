@@ -10,6 +10,7 @@ MS 3 :
   
   
 Pour facilité la correction :
+
 MS1 :
   J'ai pas fait le "lien fort" entre Acteur et Film, impossible de serializer ça tourne en boucle.
   Je n'ai pas fait l'update et le delete.
