@@ -1,0 +1,50 @@
+server:
+  port: 8081
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+spring:
+  application:
+    name: my-finder
+  security:
+    user:
+      name: actuator
+      password: actuator
+      roles: ACTUATOR_ADMIN
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    shutdown:
+      enabled: true
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: "*"
+
+
+logging:
+  level:
+    com.self.sprintboot.learning.employee: DEBUG
+
+info:
+  app:
+    name: My Finder
+    description: My Finder is a service to find employees by name
+    version: 1.0.0
+    encoding: UTF-8
+    jave:
+      source: 1.8
+      target: 1.8
