@@ -15,6 +15,22 @@ public class ServiceDelegate {
     @Autowired
     RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "healthDown")
+    public String healthMovie() {
+        return this.restTemplate.exchange(
+                "http://localhost:8080/health",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<String>() {
+                },
+                ""
+        ).getBody();
+    }
+
+    public String healthDown() {
+        return "{\"status\":\"DOWN\"}";
+    }
+
     @HystrixCommand(fallbackMethod = "fallbacked")
     public String getFilms(String schoolname) {
         return this.restTemplate.exchange(

@@ -25,6 +25,12 @@ public class ServiceController {
             @ApiResponse(code = 404, message = "Not Found")
     })
 
+    @RequestMapping(value="/healthMovie", method=RequestMethod.GET)
+    @ApiOperation(value = "Get health Movie API", tags = "healthMovie")
+    public String getHealth() {
+        return this.ServiceDelegate.healthMovie();
+    }
+
     @RequestMapping(value="/getFilms", method=RequestMethod.GET)
     @ApiOperation(value = "Get all films", tags = "getFilms")
     public String getFilms() {
