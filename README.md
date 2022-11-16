@@ -1,18 +1,18 @@
 MS 1 :
-  Exposé sur le port 8080,  http://localhost:8080/swagger-ui.html tu auras tous les endpoints
+  Exposé sur le port 8080,  http://localhost:8080/swagger-ui.html tu auras tout les endpoints
   
 MS 2 :
-  Exposé sur le port 8081,  http://localhost:8080/swagger-ui.html tu auras tous les endpoints
+  Exposé sur le port 8081,  http://localhost:8080/swagger-ui.html tu auras tout les endpoints
   /healthMovie pour voir si le MS 1 est UP ou DOWN (fonctionne avec un circuit breaker)
   
 MS 3 :
   Exposé sur le port 8761, http://localhost:8761/admin 
   
   
-Pour facilité la correction :
+Pour faciliter la correction :
 
 MS1 :
-  J'ai pas fait le "lien fort" entre Acteur et Film, impossible de serializer ça tourne en boucle.
+  Je n'ai pas fait le "lien fort" entre Acteur et Film, impossible de sérialiser ça tourne en boucle.
   Je n'ai pas fait l'update et le delete.
   
 MS2:
