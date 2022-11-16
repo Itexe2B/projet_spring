@@ -1,8 +1,12 @@
 package com.example.projet_spring.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@ApiModel(description = "Les acteurs", value = "Acteur")
 public class Acteur {
     public String getNom() {
         return nom;
@@ -20,14 +24,17 @@ public class Acteur {
         return filmographie;
     }
 
+    @ApiModelProperty(notes = "Le nom de l'acteur")
     private String nom;
+    @ApiModelProperty(notes = "Le prenom de l'acteur")
     private String prenom;
+    @ApiModelProperty(notes = "La date de naissance de l'acteur")
     private String dateNaissance;
 
     public void addFilmographie(Film filmographie) {
         this.filmographie.add(filmographie);
     }
-
+    @ApiModelProperty(notes = "La filmographie de l'acteur")
     private List<Film> filmographie;
 
     public Acteur(String nom, String prenom, String dateNaissance) {
