@@ -26,6 +26,30 @@ public class FilmServiceDelegate {
         ).getBody();
     }
 
+    @HystrixCommand(fallbackMethod = "fallbacked")
+    public String getFilm(String film) {
+        return this.restTemplate.exchange(
+                "http://localhost:8080/getFilm/{film}",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<String>() {
+                },
+                film
+        ).getBody();
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbacked")
+    public String getFilmByYear(String year) {
+        return this.restTemplate.exchange(
+                "http://localhost:8080/getFilmByYear/{year}",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<String>() {
+                },
+                year
+        ).getBody();
+    }
+
     private String fallbacked(String schoolname) {
         return "breaker";
     }

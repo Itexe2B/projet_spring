@@ -14,8 +14,18 @@ public class FilmServiceController {
     FilmServiceDelegate filmServiceDelegate;
 
     @RequestMapping(value="/getFilms", method=RequestMethod.GET)
-    public String getStudents() {
+    public String getFilms() {
         return this.filmServiceDelegate.getFilms("");
+    }
+
+    @RequestMapping(value="/getFilm/{film}", method=RequestMethod.GET)
+    public String getFilms(@PathVariable(value = "film") String film) {
+        return this.filmServiceDelegate.getFilm(film);
+    }
+
+    @RequestMapping(value="/getFilmByYear/{annee}", method=RequestMethod.GET)
+    public String getFilmByYear(@PathVariable(value = "annee") String annee) {
+        return this.filmServiceDelegate.getFilmByYear(annee);
     }
 
 }
